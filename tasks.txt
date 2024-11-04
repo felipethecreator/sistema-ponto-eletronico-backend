@@ -1,0 +1,10 @@
+--------- TASKS ---------
+
+Para segunda-feira 11/11
+
+
+- npm i dotenv sequelize pg -> conhecer cada pacote e entender oq fazem
+
+- fazer o que se pede na imagem "esquematizacao.jpeg
+
+-------------------------
