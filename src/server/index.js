@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import express from 'express';
+import dbConnect from '../config/db.js';
 
 dotenv.config()
-
 const app = express();
 
 app.get("/pensador",  (req, res) => {
@@ -28,3 +28,5 @@ app.post('/user/:id1-:id2', (req, res) => {
 app.listen(process.env.PORT, () => {
     console.log("Escutando na porta 3000")
 })
+
+dbConnect();
