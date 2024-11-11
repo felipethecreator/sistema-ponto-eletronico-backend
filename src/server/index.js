@@ -1,9 +1,18 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import dbConnect from '../config/db.js';
+const Usuario = require('../model/Usuario.js')
 
 dotenv.config()
 const app = express();
+
+dbConnect.sync({ alter: true })
+    .then(() => {
+        console.log("Sucesso ao sincronizar tabelas!")
+    })
+    .catch(error => {
+        console.log(`Ocorreu um erro ao sincronizar tabelas: ${error}`)
+    });
 
 app.get("/pensador",  (req, res) => {
     res.send("penso logo existo")

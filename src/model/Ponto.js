@@ -1,8 +1,8 @@
 const database = require('../config/db.js');
 import { DataTypes } from "sequelize";
 
-const Usuario = database.define('Usuario', {
-    id_usuario: {
+const Ponto = database.define('Ponto', {
+    id_ponto: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -32,4 +32,4 @@ const Usuario = database.define('Usuario', {
     timestamps: true
 });
 
-export default Usuario;
+export default Ponto;
