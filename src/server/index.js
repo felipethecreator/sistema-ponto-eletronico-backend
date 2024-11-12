@@ -6,6 +6,18 @@ const express = require('express');
 dotenv.config()
 const app = express();
 
+await Usuario.create({
+    nome: "Pedrão Sadahn Russein",
+    emaill: "pedraosafado@gmail.com",
+    login: "Pedraosafado",
+    senha: "pedrogostodocaralhocomacamisadololzin",
+    permissao: "ADM"
+}).then(() => {
+    console.log("Usuário criado com sucesso!")})
+    .catch(error => {
+        console.log(`Erro ao cadastrar usuário! ${error}`)
+    })
+
 sequelize.sync({ alter: true })
     .then(() => {
         console.log("Sucesso ao sincronizar tabelas!")
