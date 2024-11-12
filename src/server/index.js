@@ -1,12 +1,12 @@
-import dotenv from 'dotenv';
-import dbConnect from '../config/db.js';
+const dotenv = require('dotenv');
+const { sequelize, dbConnect } = require('../config/db.js');
 const Usuario = require('../model/Usuario.js');
 const express = require('express');
 
 dotenv.config()
 const app = express();
 
-dbConnect.sync({ alter: true })
+sequelize.sync({ alter: true })
     .then(() => {
         console.log("Sucesso ao sincronizar tabelas!")
     })

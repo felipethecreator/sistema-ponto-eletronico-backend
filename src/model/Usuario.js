@@ -1,7 +1,7 @@
-const database = require('../config/db.js');
-import { DataTypes } from "sequelize";
+const { sequelize } = require('../config/db.js');
+const { DataTypes } = require("sequelize");
 
-const Usuario = database.define('Usuario', {
+const Usuario = sequelize.define('Usuario', {
     id_usuario: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -27,8 +27,7 @@ const Usuario = database.define('Usuario', {
         type: DataTypes.ENUM('USER', 'ADM'),
         allowNull: false
     }
-},
-{
+}, {
     timestamps: true
 });
 

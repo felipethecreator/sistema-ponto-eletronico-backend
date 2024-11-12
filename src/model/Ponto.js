@@ -1,5 +1,5 @@
-const database = require('../config/db.js');
-import { DataTypes } from "sequelize";
+const { sequelize } = require('../config/db.js');
+const { DataTypes } = require("sequelize");
 
 const Ponto = database.define('Ponto', {
     id_ponto: {
