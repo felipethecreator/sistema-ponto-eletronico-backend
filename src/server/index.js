@@ -6,9 +6,18 @@ const express = require('express');
 dotenv.config()
 const app = express();
 
-await Usuario.create({
+
+sequelize.sync({ alter: true })
+.then(() => {
+    console.log("Sucesso ao sincronizar tabelas!")
+})
+.catch(error => {
+    console.log(`Ocorreu um erro ao sincronizar tabelas: ${error}`)
+});
+
+Usuario.create({
     nome: "Pedrão Sadahn Russein",
-    emaill: "pedraosafado@gmail.com",
+    email: "pedraosafado@gmail.com",
     login: "Pedraosafado",
     senha: "pedrogostodocaralhocomacamisadololzin",
     permissao: "ADM"
@@ -17,15 +26,7 @@ await Usuario.create({
     .catch(error => {
         console.log(`Erro ao cadastrar usuário! ${error}`)
     })
-
-sequelize.sync({ alter: true })
-    .then(() => {
-        console.log("Sucesso ao sincronizar tabelas!")
-    })
-    .catch(error => {
-        console.log(`Ocorreu um erro ao sincronizar tabelas: ${error}`)
-    });
-
+    
 app.get("/pensador",  (req, res) => {
     res.send("penso logo existo")
 })
