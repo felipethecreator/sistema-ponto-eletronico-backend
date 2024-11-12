@@ -32,4 +32,4 @@ const Ponto = database.define('Ponto', {
     timestamps: true
 });
 
-export default Ponto;
+module.exports = Ponto;

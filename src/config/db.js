@@ -17,4 +17,4 @@ async function dbConnect() {
         console.log('Ocorreu um erro ao se conectar', error)
     }
 }
-export default dbConnect;
+module.exports = dbConnect;

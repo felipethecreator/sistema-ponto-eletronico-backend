@@ -32,4 +32,4 @@ const Usuario = database.define('Usuario', {
     timestamps: true
 });
 
-export default Usuario;
+module.exports = Usuario;

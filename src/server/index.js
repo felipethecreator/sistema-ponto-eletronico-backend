@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
-import express from 'express';
 import dbConnect from '../config/db.js';
-const Usuario = require('../model/Usuario.js')
+const Usuario = require('../model/Usuario.js');
+const express = require('express');
 
 dotenv.config()
 const app = express();
