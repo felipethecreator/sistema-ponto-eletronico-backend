@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 const { sequelize, dbConnect } = require('../config/db.js');
 const Usuario = require('../model/Usuario.js');
+const Ponto = require('../model/Ponto.js');
 const express = require('express');
 
 dotenv.config()
@@ -8,12 +9,22 @@ const app = express();
 
 
 sequelize.sync({ alter: true })
-.then(() => {
-    console.log("Sucesso ao sincronizar tabelas!")
+    .then(() => {
+        console.log("Sucesso ao sincronizar tabelas!")
+    })
+    .catch(error => {
+        console.log(`Ocorreu um erro ao sincronizar tabelas: ${error}`)
+    });
+
+Ponto.create({
+    tipo: "E",
+    dataHora: "07/04/2005"
+}).then(() => {
+    console.log("Usuário criado com sucesso!")
 })
-.catch(error => {
-    console.log(`Ocorreu um erro ao sincronizar tabelas: ${error}`)
-});
+    .catch(error => {
+        console.log(`Erro ao cadastrar usuário! ${error}`)
+    })
 
 Usuario.create({
     nome: "Pedrão Sadahn Russein",
@@ -22,12 +33,13 @@ Usuario.create({
     senha: "pedrogostodocaralhocomacamisadololzin",
     permissao: "ADM"
 }).then(() => {
-    console.log("Usuário criado com sucesso!")})
+    console.log("Usuário criado com sucesso!")
+})
     .catch(error => {
         console.log(`Erro ao cadastrar usuário! ${error}`)
     })
-    
-app.get("/pensador",  (req, res) => {
+
+app.get("/pensador", (req, res) => {
     res.send("penso logo existo")
 })
 
